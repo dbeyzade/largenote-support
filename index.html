@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LargeNote – Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber: #c45b2a;
+      --amber-light: #f0b992;
+      --dark: #1a1008;
+      --surface: #fdf6ee;
+      --card: #fff9f3;
+      --border: rgba(196,91,42,0.12);
+      --text: #2b1a12;
+      --muted: #7a6050;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 24px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,91,42,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #c45b2a, #f0b992);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(196,91,42,0.4);
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--amber-light); }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196,91,42,0.15);
+      border: 1px solid rgba(196,91,42,0.3);
+      color: var(--amber-light);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── NAV PILLS ── */
+    .nav-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 40px 24px 0;
+    }
+    .nav-pills a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+    .nav-pills a:hover {
+      background: var(--amber);
+      color: #fff;
+      border-color: var(--amber);
+    }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    section + section { padding-top: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(196,91,42,0.1);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 2px; }
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    details + details { margin-top: 8px; }
+    details summary {
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 18px 22px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: background 0.15s;
+      user-select: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--amber);
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    details summary:hover { background: rgba(196,91,42,0.04); }
+    details .faq-body {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(196,91,42,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-box h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .contact-box p {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #c45b2a, #f0b992);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(196,91,42,0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(196,91,42,0.55);
+    }
+    .contact-email {
+      display: block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer span { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 70px; }
+      .contact-box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">𝒩</div>
+  <h1>LargeNote <span>Support</span></h1>
+  <p>DreamCraft Writer</p>
+  <div class="hero-badge">We're here to help</div>
+</div>
+
+<!-- NAV -->
+<div class="nav-pills">
+  <a href="#getting-started">Getting Started</a>
+  <a href="#features">Features</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- GETTING STARTED -->
+<section id="getting-started">
+  <div class="section-label">Basics</div>
+  <div class="section-title">Getting Started with LargeNote</div>
+  <div class="cards">
+    <div class="card">
+      <span class="card-icon">📄</span>
+      <h3>Create a Document</h3>
+      <p>Click <strong>New</strong> in the toolbar to start a blank document. Use the ribbon to format text, insert tables, images, and more.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💾</span>
+      <h3>Save Your Work</h3>
+      <p>Hit <strong>Save</strong> to save in native .largenote format, or <strong>Save As</strong> to export as .docx for Word / Google Docs compatibility.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⬜⬜</span>
+      <h3>Split View</h3>
+      <p>Click <strong>Split</strong> in the top bar to write your document and work on a spreadsheet side by side. Drag the divider to resize each pane.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">▶</span>
+      <h3>Slideshow / Sunum</h3>
+      <p>Click <strong>Sunum</strong> in the ribbon to turn your document into a presentation. Headings become slides automatically.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌙</span>
+      <h3>Night Mode</h3>
+      <p>Toggle the moon icon in the toolbar to switch between light and dark mode for comfortable writing in any lighting.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔍</span>
+      <h3>Focus Mode</h3>
+      <p>Click <strong>Focus</strong> to hide all distractions and write in a clean, minimal environment. Press Escape or click Exit Focus to return.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label">What's Inside</div>
+  <div class="section-title">Everything LargeNote Can Do</div>
+  <div class="cards">
+    <div class="card">
+      <span class="card-icon">✍️</span>
+      <h3>Rich Text Editor</h3>
+      <p>Fonts, headings, bold, italic, underline, strikethrough, highlight, colors, subscript, superscript, and custom font sizes.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <h3>Spreadsheet</h3>
+      <p>Full spreadsheet grid with SUM, AVERAGE, IF, VLOOKUP and more formula support via HyperFormula engine.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🖼️</span>
+      <h3>Images & Tables</h3>
+      <p>Insert and resize images inline. Add tables with merge cells, split cells, and full formatting control.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">𝒜</span>
+      <h3>WordArt</h3>
+      <p>Insert decorative text with gradient effects using the Yazı Sanatı button in the ribbon toolbar.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🖨️</span>
+      <h3>Print</h3>
+      <p>Print directly with full page layout support — A4, Letter, Wide — with custom margins and themes.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">♿</span>
+      <h3>Accessibility Mode</h3>
+      <p>Enable A11y mode to enlarge the entire interface for comfortable reading and writing at any scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label">FAQ</div>
+  <div class="section-title">Frequently Asked Questions</div>
+  <div class="faq-list">
+
+    <details>
+      <summary>What file formats does LargeNote support?</summary>
+      <div class="faq-body">
+        LargeNote saves documents in its native <strong>.largenote</strong> format and can export to <strong>.docx</strong> (Microsoft Word / Google Docs compatible). You can open existing files via File → Open.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I use Split View?</summary>
+      <div class="faq-body">
+        Click the <strong>Split</strong> button at the top of the app. The left pane shows your document and the right pane shows a spreadsheet. Drag the vertical divider bar between them to adjust the width of each pane.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I create a slideshow from my document?</summary>
+      <div class="faq-body">
+        Use Heading 1 or Heading 2 styles in your document — each heading becomes a slide. Then click <strong>▶ Sunum</strong> in the ribbon toolbar. Navigate between slides using the Önceki / Sonraki buttons, or enable auto-advance mode.
+      </div>
+    </details>
+
+    <details>
+      <summary>Can I use spreadsheet formulas?</summary>
+      <div class="faq-body">
+        Yes. Click any cell and type a formula starting with <strong>=</strong>, for example <code>=SUM(A1:A5)</code>, <code>=AVERAGE(B1:B10)</code>, <code>=IF(A1&gt;0,"Yes","No")</code>, or <code>=VLOOKUP(...)</code>. LargeNote uses the HyperFormula engine for full formula support.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I change the page size or margins?</summary>
+      <div class="faq-body">
+        Use the <strong>A4</strong> dropdown in the toolbar to switch between A4, Letter, and Wide page sizes. Margin options are available in the page settings section of the toolbar.
+      </div>
+    </details>
+
+    <details>
+      <summary>What is Hand Mode?</summary>
+      <div class="faq-body">
+        Hand Mode lets you click and drag to pan the document canvas freely — like a hand tool in design apps. Toggle it on/off with the <strong>Hand</strong> button in the toolbar.
+      </div>
+    </details>
+
+    <details>
+      <summary>Is my data stored in the cloud?</summary>
+      <div class="faq-body">
+        No. LargeNote is fully offline. All your documents are saved locally on your Mac. We do not collect, upload, or transmit your data anywhere.
+      </div>
+    </details>
+
+    <details>
+      <summary>LargeNote won't open — what do I do?</summary>
+      <div class="faq-body">
+        If macOS blocks LargeNote from opening, right-click the app icon and choose <strong>Open</strong>, then click Open in the dialog. This is a one-time step required for apps not downloaded from the Mac App Store.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I report a bug or request a feature?</summary>
+      <div class="faq-body">
+        Send an email to <a href="mailto:dbeyzade@hotmail.com" style="color:var(--amber)">dbeyzade@hotmail.com</a> with a description of the issue or your idea. Include your macOS version and LargeNote version if possible.
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>Still need help?</h2>
+    <p>Can't find what you're looking for? Send us a message and we'll get back to you as soon as possible.</p>
+    <a href="mailto:dbeyzade@hotmail.com?subject=LargeNote%20Support" class="contact-btn">✉ Send a Message</a>
+    <span class="contact-email">dbeyzade@hotmail.com</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>LargeNote</span> · DreamCraft Writer · All rights reserved</p>
+</footer>
+
+</body>
+</html>
