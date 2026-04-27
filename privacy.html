@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LargeNote – Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber: #c45b2a;
+      --amber-light: #f0b992;
+      --dark: #1a1008;
+      --surface: #fdf6ee;
+      --card: #fff9f3;
+      --border: rgba(196,91,42,0.12);
+      --text: #2b1a12;
+      --muted: #7a6050;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 24px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,91,42,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #c45b2a, #f0b992);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(196,91,42,0.4);
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--amber-light); }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196,91,42,0.15);
+      border: 1px solid rgba(196,91,42,0.3);
+      color: var(--amber-light);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── NAV ── */
+    .nav-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 40px 24px 0;
+    }
+    .nav-pills a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+    .nav-pills a:hover {
+      background: var(--amber);
+      color: #fff;
+      border-color: var(--amber);
+    }
+
+    /* ── CONTENT ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    section + section { padding-top: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* ── POLICY BLOCKS ── */
+    .policy-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .policy-block:hover {
+      box-shadow: 0 8px 32px rgba(196,91,42,0.08);
+    }
+    .policy-block-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .policy-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .policy-block h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .policy-block p, .policy-block li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .policy-block ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .policy-block li::marker {
+      color: var(--amber);
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      background: linear-gradient(135deg, rgba(196,91,42,0.08), rgba(240,185,146,0.1));
+      border: 1px solid rgba(196,91,42,0.2);
+      border-radius: 16px;
+      padding: 28px 28px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .highlight-icon { font-size: 28px; flex-shrink: 0; }
+    .highlight h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 6px;
+    }
+    .highlight p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── DATE TAG ── */
+    .date-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 32px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(196,91,42,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-box h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .contact-box p {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #c45b2a, #f0b992);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(196,91,42,0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(196,91,42,0.55);
+    }
+    .contact-email {
+      display: block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer span { color: var(--amber); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 70px; }
+      .contact-box { padding: 36px 24px; }
+      .policy-block { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">𝒩</div>
+  <h1>LargeNote <span>Privacy</span></h1>
+  <p>DreamCraft Writer</p>
+  <div class="hero-badge">Your data stays with you</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="index.html">Support</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="mailto:dbeyzade@hotmail.com">Contact</a>
+</nav>
+
+<!-- INTRO -->
+<section>
+  <div class="section-label">Privacy Policy</div>
+  <div class="section-title">We don't collect<br/>your data. Full stop.</div>
+  <div class="date-tag">Effective Date: 27 April 2026</div>
+  <p class="section-subtitle">
+    LargeNote is a local-first word processor. Everything you write, every document you create,
+    every spreadsheet you build — it all lives on your Mac. We have no servers, no accounts,
+    no telemetry. This policy explains that in detail.
+  </p>
+
+  <!-- KEY POINT -->
+  <div class="highlight">
+    <div class="highlight-icon">🔒</div>
+    <div>
+      <h3>The short version</h3>
+      <p>LargeNote does not collect, transmit, store, or share any personal information or document content whatsoever. All data resides exclusively on your local device under your full control.</p>
+    </div>
+  </div>
+
+  <!-- BLOCKS -->
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">📄</div>
+      <div>
+        <h3>Information We Collect</h3>
+      </div>
+    </div>
+    <p>We collect <strong>no information</strong> from you. LargeNote operates entirely offline. There are no user accounts, no registration forms, no analytics SDKs, and no background network requests. The app never contacts our servers because we have none.</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">📁</div>
+      <div>
+        <h3>Your Documents &amp; Files</h3>
+      </div>
+    </div>
+    <p>All documents, spreadsheets, images, and content you create in LargeNote are stored locally on your Mac in locations you choose. We cannot access, read, or view your files in any way. Your content never leaves your device.</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">📡</div>
+      <div>
+        <h3>Network &amp; Internet Access</h3>
+      </div>
+    </div>
+    <p>LargeNote does not make any network requests during normal operation. The app does not:
+    </p>
+    <ul>
+      <li>Send usage analytics or crash reports to any server</li>
+      <li>Download ads or tracking scripts</li>
+      <li>Sync your content to the cloud</li>
+      <li>Check for updates in the background (macOS handles this via the App Store)</li>
+      <li>Connect to any third-party service</li>
+    </ul>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">🍪</div>
+      <div>
+        <h3>Cookies &amp; Tracking</h3>
+      </div>
+    </div>
+    <p>LargeNote uses no cookies, pixels, fingerprinting, or any other tracking technology. There is nothing to track — the app has no web backend or user identity system.</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">👤</div>
+      <div>
+        <h3>Third-Party Services</h3>
+      </div>
+    </div>
+    <p>LargeNote does not integrate with, or share data with, any third-party analytics, advertising, or data-broker services. The only third party involved in your use of LargeNote is Apple, through the Mac App Store distribution and optional iCloud (if you choose to store files there via Finder — this is entirely outside LargeNote's control and governed by Apple's own privacy policy).</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">👶</div>
+      <div>
+        <h3>Children's Privacy</h3>
+      </div>
+    </div>
+    <p>Because LargeNote collects no data from any user, there is no special risk to children. The app is safe for users of all ages. We comply fully with COPPA and equivalent regulations by nature of our zero-data-collection design.</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">🌍</div>
+      <div>
+        <h3>International Users &amp; GDPR</h3>
+      </div>
+    </div>
+    <p>Because we collect no personal data, we have no obligations under GDPR, CCPA, or similar frameworks regarding data transfer, deletion requests, or data processing agreements. There is simply no data to process. If you are located in the EU or California, you can use LargeNote with full confidence that your rights are inherently protected.</p>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-block-header">
+      <div class="policy-icon">🔄</div>
+      <div>
+        <h3>Changes to This Policy</h3>
+      </div>
+    </div>
+    <p>If we ever update this privacy policy, the new version will be published at this URL. Any material change that affects data collection would only take effect in a future app version clearly described in the App Store release notes. Given that our core promise is zero data collection, any such change would be exceptional and prominently disclosed.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="contact-box">
+    <h2>Questions about privacy?</h2>
+    <p>We're happy to answer any questions you have about how LargeNote handles — or rather, doesn't handle — your data.</p>
+    <a href="mailto:dbeyzade@hotmail.com" class="contact-btn">Send an Email</a>
+    <span class="contact-email">dbeyzade@hotmail.com</span>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span>LargeNote</span> · DreamCraft Writer · <a href="index.html" style="color:var(--muted);text-decoration:none;">Support</a>
+</footer>
+
+</body>
+</html>
